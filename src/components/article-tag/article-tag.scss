@@ -1,0 +1,14 @@
+.article-tag {
+  color: #fff;
+  padding: 2px 6px;
+  border: 1px solid #fff;
+  border-radius: 100px;
+  font-size: 12px;
+  white-space: nowrap;
+
+  &--black {
+    width: fit-content;
+    color: #000;
+    border-color: #000;
+  }
+}
