@@ -2,12 +2,12 @@ import React from 'react';
 import type { NextPage } from 'next';
 import { createClient } from 'contentful';
 import { ArticleProps, FieldsProps } from '../index';
-import { ArticlePageLayout } from '../../layouts'
+import { ArticlePageLayout } from '../../layouts';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID || '',
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-})
+});
 
 export const getStaticPaths = async () => {
   const data = await client.getEntries<FieldsProps>({ content_type: 'article' });
@@ -22,7 +22,7 @@ export const getStaticPaths = async () => {
     paths,
     fallback: false
   }
-}
+};
 
 export const getStaticProps = async ({ params } : {params: {slug: string;}}) => {
   const { items } = await client.getEntries({
@@ -35,7 +35,7 @@ export const getStaticProps = async ({ params } : {params: {slug: string;}}) => 
       article: items[0]
     }
   }
-}
+};
 
 interface ArticlePageDetailsProps {
   article: ArticleProps;

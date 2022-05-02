@@ -1,13 +1,13 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { createClient } from 'contentful';
-import { ArticleLayout } from '../layouts';
 import { Document } from '@contentful/rich-text-types';
+import { ArticleLayout } from '../layouts';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID || '',
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
-})
+});
 
 export const getStaticProps = async () => {
   const data = await client.getEntries({ content_type: 'article' });
@@ -17,7 +17,7 @@ export const getStaticProps = async () => {
       article: data.items
     }
   }
-}
+};
 
 interface MainImageProps {
   fields: {
@@ -28,25 +28,11 @@ interface MainImageProps {
         image: {
           width: number;
           height: number;
-        }
-      }
-    }
+        };
+      };
+    };
     title: string;
-  }
-};
-
-interface ContentProps {
-  content: {
-    content: ContentProps[];
-    value: string;
-    marks: {
-      type: string;
-    }[];
-  }[];
-  data: {
-    target: MainImageProps;
-  }
-  nodeType: string;
+  };
 };
 
 interface FieldProps {
@@ -61,7 +47,7 @@ export interface FieldsProps {
   perex: string;
   topic: {
     fields: FieldProps;
-  }
+  };
   industry: {
     fields: FieldProps;
   }[];
@@ -83,7 +69,7 @@ const Home: NextPage<HomePageProps> = ({
   article,
 }) => {
   console.log(article);
-  // console.log(article[0].fields.industry.map(item => item.fields.value));
+  console.log(article[0].fields.industry.map(item => item.fields.value));
   return (
     <div className="container">
       <Head>
@@ -109,4 +95,4 @@ const Home: NextPage<HomePageProps> = ({
   )
 };
 
-export default Home
+export default Home;

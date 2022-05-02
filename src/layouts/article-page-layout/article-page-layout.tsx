@@ -59,14 +59,14 @@ export const ArticlePageLayout: React.FC<ArticlePageLayoutProps> = ({
         </p>
       ),
       [BLOCKS.OL_LIST]: (node: Block | Inline, children: ReactNode) => (
-          <ol>
-            {children}
-          </ol>
+        <ol>
+          {children}
+        </ol>
       ),
       [BLOCKS.UL_LIST]: (node: Block | Inline, children: ReactNode) => (
-          <ul>
-            {children}
-          </ul>
+        <ul>
+          {children}
+        </ul>
       ),
       [BLOCKS.LIST_ITEM]: (node: Block | Inline, children: ReactNode) => (
         <li>
@@ -74,12 +74,12 @@ export const ArticlePageLayout: React.FC<ArticlePageLayoutProps> = ({
         </li>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => (node.data.target.fields.file.details.image ? (
-          <Image
-            src={`https:${node.data.target.fields.file.url}?w=1060`}
-            alt={node.data.target.fields.title}
-            width={node.data.target.fields.file.details.image.width}
-            height={node.data.target.fields.file.details.image.height}
-          />
+        <Image
+          src={`https:${node.data.target.fields.file.url}?w=1060`}
+          alt={node.data.target.fields.title}
+          width={node.data.target.fields.file.details.image.width}
+          height={node.data.target.fields.file.details.image.height}
+        />
       ) : (
         <p className="rich-text__error-message">
           error

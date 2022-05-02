@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArticleTag } from '../article-tag'
+import { ArticleTag } from '../article-tag';
 
 interface MovieCardProps {
   title: string;
